@@ -1,4 +1,6 @@
+import 'package:ar_face_app/cameraWithMaskFiltersScreen.dart';
 import 'package:flutter/material.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:splashscreen/splashscreen.dart';
 
 class MySplashScreen extends StatefulWidget {
@@ -13,7 +15,8 @@ class _MySplashScreenState extends State<MySplashScreen> {
   Widget build(BuildContext context) {
     return SplashScreen(
       seconds: 10,
-      title: Text(
+      navigateAfterSeconds: const CameraWithMaskFiltersScreen(),
+      title: const Text(
         "AR Face Mask App",
         style: TextStyle(
           fontSize: 45,
@@ -25,7 +28,7 @@ class _MySplashScreenState extends State<MySplashScreen> {
       backgroundColor: Colors.white,
       photoSize: 140,
       loaderColor: Colors.deepPurple,
-      loadingText: Text(
+      loadingText: const Text(
         "from distoma code",
         style: TextStyle(
           color: Colors.deepPurpleAccent,
