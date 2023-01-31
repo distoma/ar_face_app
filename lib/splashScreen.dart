@@ -1,7 +1,6 @@
 import 'package:ar_face_app/cameraWithMaskFiltersScreen.dart';
 import 'package:flutter/material.dart';
-// ignore: import_of_legacy_library_into_null_safe
-import 'package:splashscreen/splashscreen.dart';
+import 'package:another_flutter_splash_screen/another_flutter_splash_screen.dart';
 
 class MySplashScreen extends StatefulWidget {
   const MySplashScreen({Key? key}) : super(key: key);
@@ -13,29 +12,21 @@ class MySplashScreen extends StatefulWidget {
 class _MySplashScreenState extends State<MySplashScreen> {
   @override
   Widget build(BuildContext context) {
-    return SplashScreen(
-      seconds: 10,
-      navigateAfterSeconds: const CameraWithMaskFiltersScreen(),
-      title: const Text(
-        "AR Face Mask App",
-        style: TextStyle(
-          fontSize: 45,
-          color: Colors.deepPurpleAccent,
-          fontFamily: "Signatra",
-        ),
-      ),
-      image: Image.asset("images/icon.png"),
+    return FlutterSplashScreen.fadeIn(
       backgroundColor: Colors.white,
-      photoSize: 140,
-      loaderColor: Colors.deepPurple,
-      loadingText: const Text(
-        "from distoma code",
-        style: TextStyle(
-          color: Colors.deepPurpleAccent,
-          fontSize: 16.0,
-          fontFamily: "Brand Bold",
-        ),
+      onInit: () {
+        debugPrint("On Init");
+      },
+      onEnd: () {
+        debugPrint("On End");
+      },
+      childWidget: SizedBox(
+        height: 200,
+        width: 200,
+        child: Image.asset("images/icon.png"),
       ),
+      onAnimationEnd: () => debugPrint("On Fade In End"),
+      defaultNextScreen: const CameraWithMaskFiltersScreen(),
     );
   }
 }
