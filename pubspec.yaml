@@ -38,6 +38,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   another_flutter_splash_screen: ^1.1.4
   camera_deep_ar: ^0.0.2+3
+  avatar_view: ^1.0.1
 
 dev_dependencies:
   flutter_test:
